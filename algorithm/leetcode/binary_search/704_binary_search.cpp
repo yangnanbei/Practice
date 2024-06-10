@@ -15,6 +15,10 @@ using namespace std;
 输出: -1
 解释: 2 不存在 nums 中因此返回 -1
 
+Attention:
+    你需要注意区间是【）还是【】
+    我的选择是【），这样符合C语言的习惯
+
 */
 class Solution {
 public:
