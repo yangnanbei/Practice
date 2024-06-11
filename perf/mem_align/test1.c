@@ -15,7 +15,7 @@ typedef struct mem_align{
 }mem_align;
 
 void test_unalign() {
-	mem_unalign mem_un;
+	volatile mem_unalign mem_un;
 	mem_un.a = 1;
 	mem_un.b = 2;
 	mem_un.c = 3;
@@ -23,7 +23,7 @@ void test_unalign() {
 }
 
 void test_align() {
-	mem_align mem_al;
+	volatile mem_align mem_al;
 	mem_al.a = 1;
 	mem_al.b = 2;
 	mem_al.c = 3;
