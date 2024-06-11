@@ -1,0 +1,1 @@
+g++ -g -O0 -fsanitize=address -fno-omit-frame-pointer 203_rm_list_elem.cpp -o asan_test
