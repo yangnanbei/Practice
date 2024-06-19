@@ -27,7 +27,7 @@ public:
     int get(int index) {
 		ListNode *tmp;
 		if (index > 0 || index > (size_ - 1)) {
-			cout << "invalid index " << index << endl;
+			cout << "get: invalid index " << index << endl;
 		}
 
 		tmp = sentibel->nex;
@@ -38,19 +38,44 @@ public:
     }
     
     void addAtHead(int val) {
-
+		ListNode* insnode = new ListNode(val);
+		insnode->next = sentinel->next; 
+		sentinel->next = insnode;
     }
     
     void addAtTail(int val) {
-
+		ListNode *insnode = new ListNode(val);
+		ListNode *tmp = sentinel->next;
+		while(tmp--) {
+			tmp = tmp->next;
+		}
+		tmp->next = insnode;
     }
     
     void addAtIndex(int index, int val) {
-
+		if (index < 0 || index > (size_ - 1)) {
+			cout << "addAtIndex: invalid index " << index << endl;
+		}
+		ListNode* insnode = new ListNode(val);
+		ListNode *tmp = sentinel->next;
+		while(index--) {
+			tmp = tmp->next;
+		}
+		insnode->next = tmp->next;
+		tmp->next = insnode;
     }
     
     void deleteAtIndex(int index) {
-
+		if (index < 0 || index > (size_ - 1)) {
+			cout << " deleteAtIndex: invalid index " << index << endl;
+		}
+		ListNode *tmp = sentinel->next;
+		while(index--) {
+			tmp = tmp->next;
+		}
+		ListNode *delnode = tmp;
+		tmp->next = tmp->next->next;
+		delete tmp;
     }
 private:
 	int size_;
