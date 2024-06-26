@@ -1,0 +1,25 @@
+
+1. set
+
+如何查找一个数是否在set中出现？
+    if (set.find(num) != set.end()) {
+        return 找到了;
+    }
+
+2. unordered_map
+
+如何查找一个数是否在unordered_map中出现？
+
+    // 遍历当前元素，并在map中寻找是否有匹配的key
+    auto iter = map.find(target - nums[i]); 
+    if(iter != map.end()) {
+        return {iter->second, i};
+    }
+
+    if (umap.find(0 - (c + d)) != umap.end()) {
+        count += umap[0 - (c + d)];
+    }
+
+    if (umap.count(target_num)) {
+        return {umap[target_num], i};
+    }
