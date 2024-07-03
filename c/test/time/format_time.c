@@ -17,7 +17,7 @@ void timestamp_to_string(time_t timestamp, char* buffer, size_t size) {
     }  
   
     // 使用strftime格式化日期和时间，但不包括毫秒  
-    strftime(buffer, size, "%Y%m%d%H%M%S", tm_info);  
+    strftime(buffer, size, "%Y-%m-%d-%H:%M:%S", tm_info);  
   
 }
   
