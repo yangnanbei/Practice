@@ -1,7 +1,7 @@
 #include <stdio.h>  
   
 int main() {  
-    const char *input = "/home/ge/data/pcap/traffic-collect/wri_20240713-120200_1.pcap";  
+    const char *input = "/home/ge/data/pcap/traffic-collect/20240713-120200_1.pcap";  
     char timeStr[32]; // 足够存储 "120200" 和终止的 '\0'  
   
     // 使用 %*[^_] 跳过直到第一个 '_' 的所有字符（但这里我们实际上想要的是 'wri_' 之后的部分）  
@@ -20,7 +20,7 @@ int main() {
     // 但是，上面的模式仍然过于复杂且可能不是最高效的。一个更简单且直接的方法是：  
     //matched = sscanf(input, "*%5[wri_]*[^-]-%6s", timeStr);  
     // 这里我们使用了 '*' 来匹配任意数量的字符（除了换行符），直到遇到 '/wri_'，然后跳过日期直到 '-'，最后读取时间戳  
-	matched = sscanf(input, "%*[^-]%*[^wri]%*[^-]-%6s", timeStr);  
+	matched = sscanf(input, "%*[^-]%*[^/]/%16s", timeStr);  
 	//matched = sscanf(input, "%*[^-]*%*[^-]-%6s", timeStr);  
         printf("Matched time: %s\n", timeStr);  
     // 检查是否成功匹配  
