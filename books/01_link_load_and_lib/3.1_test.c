@@ -11,7 +11,7 @@
 int printf(const char* format, ...);
 
 int global_init_var = 84; // .data initialized global var
-int global_uninit_var;    // .bss  uninitialized global var
+int global_uninit_var[1000000] = {0};    // .bss  uninitialized global var
 
 void func1(int i)         // .text
 {
